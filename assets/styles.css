@@ -1,0 +1,197 @@
+:root {
+  --accent: #22d3ee;
+  --accent-2: #7dd3fc;
+  --text: #e5e7eb;
+  --muted: rgba(229,231,235,0.78);
+  --card: rgba(255,255,255,0.045);
+  --card-border: rgba(255,255,255,0.10);
+  --ok: #22d3ee;
+  --warn: #f59e0b;
+  --danger: #ef4444;
+}
+
+.stApp {
+  color: var(--text);
+  background:
+    radial-gradient(900px 500px at 12% -15%, #1f2937 0%, #0b0f17 60%) no-repeat,
+    radial-gradient(800px 450px at 90% 10%, rgba(34,211,238,0.08) 0%, transparent 60%) no-repeat,
+    linear-gradient(180deg, #0b0f17 0%, #0b0f17 100%) no-repeat;
+  background-attachment: fixed, fixed, fixed;
+}
+
+[data-testid="stToolbar"],
+.stAppDeployButton,
+[data-testid="baseButton-headerNoPadding"],
+[title="View app menu"] {
+  display: none !important;
+}
+
+footer {
+  visibility: hidden;
+}
+
+:where(h1, h2, h3, h4, h5, h6) > a[href^="#"],
+[data-testid="stHeading"] a,
+[data-testid="stHeadingWithAnchor"] a,
+[data-testid="stMarkdownContainer"] :where(h1, h2, h3, h4, h5, h6) > a {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+.block-container {
+  padding-top: 1.8rem;
+  padding-bottom: 1.8rem;
+  max-width: 980px;
+  position: relative;
+  z-index: 1;
+}
+
+.app-hero {
+  margin: 0 0 1.2rem 0;
+}
+.app-hero .pill {
+  display: inline-block;
+  font-size: 0.85rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  background: rgba(34,211,238,0.12);
+  border: 1px solid var(--card-border);
+  color: var(--text);
+}
+.app-hero .title {
+  font-weight: 900;
+  font-size: 3rem;
+  line-height: 1.12;
+  letter-spacing: 0.2px;
+  margin-top: 0.5rem;
+  background: linear-gradient(90deg, #ffffff 0%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.app-hero .subtitle {
+  margin-top: 0.25rem;
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--muted);
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 1.1rem 1.2rem;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.28), inset 0 0 0 1px rgba(255,255,255,0.02);
+  backdrop-filter: blur(6px);
+  margin-bottom: 1rem;
+}
+.card .card-title {
+  font-weight: 700;
+  margin-bottom: 0.6rem;
+}
+
+.stMarkdown p {
+  line-height: 1.65;
+  color: var(--muted);
+}
+
+[data-testid="stFileUploaderDropzone"] {
+  border: 1px dashed var(--card-border);
+  background: rgba(255,255,255,0.035);
+  border-radius: 14px;
+  transition: border-color .2s, background .2s, transform .08s;
+}
+[data-testid="stFileUploaderDropzone"]:hover {
+  border-color: rgba(255,255,255,0.35);
+  background: rgba(255,255,255,0.06);
+  transform: translateY(-1px);
+}
+
+.stButton > button,
+.stDownloadButton > button {
+  border-radius: 12px;
+  padding: 0.6rem 1rem;
+  font-weight: 700;
+  color: var(--text);
+  background: linear-gradient(180deg, rgba(34,211,238,0.18) 0%, rgba(34,211,238,0.10) 100%);
+  border: 1px solid var(--card-border);
+  transition: all .15s ease;
+}
+.stButton > button:hover,
+.stDownloadButton > button:hover {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(34,211,238,0.25);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 0.45rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid var(--card-border);
+  background: rgba(255,255,255,0.05);
+}
+.badge.ok { border-color: rgba(34,211,238,0.35); }
+.badge.warn { border-color: rgba(245,158,11,0.45); }
+.badge.danger { border-color: rgba(239,68,68,0.5); }
+
+.meter {
+  width: 100%;
+  height: 12px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid var(--card-border);
+  overflow: hidden;
+}
+.meter-fill {
+  height: 100%;
+  width: calc(var(--p) * 100%);
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  border-right: 1px solid rgba(255,255,255,0.35);
+  border-radius: 999px;
+  transition: width 0.25s ease;
+}
+
+.result-row {
+  display: grid;
+  grid-template-columns: 160px 1fr 60px;
+  gap: 10px;
+  align-items: center;
+  padding: 0.55rem 0.45rem;
+  border-radius: 12px;
+}
+.result-row .name { font-weight: 700; color: #fff; }
+.result-row .pct { text-align: right; font-variant-numeric: tabular-nums; }
+
+[data-testid="stAlert"] {
+  border-radius: 12px;
+  border-left: 4px solid var(--accent);
+  background: rgba(34,211,238,0.08);
+}
+
+@media (max-width: 640px) {
+  .app-hero .title { font-size: 2rem; }
+  .block-container { padding-top: 1rem; }
+  .result-row { grid-template-columns: 120px 1fr 50px; }
+}
+
+html, body, .stApp {
+  margin: 0;
+  padding: 0;
+}
+
+header[data-testid="stHeader"],
+div[data-testid="stHeader"],
+[data-testid="stDecoration"] {
+  display: none !important;
+  height: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+[data-testid="stToolbar"] {
+  display: none !important;
+}
